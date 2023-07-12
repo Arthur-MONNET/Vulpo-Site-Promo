@@ -12,6 +12,16 @@
     <!--tailwind-->
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Vulpo</title>
+    <style>
+        #intro {
+            height: calc(100vh - 385px);
+        }
+
+        section {
+            padding-top: 140px;
+            margin-bottom: -140px;
+        }
+    </style>
 </head>
 <body>
     <header class="fixed top-0 left-0 w-full h-[140px] bg-gray-900 text-white p-4 flex justify-center items-center">
@@ -20,44 +30,96 @@
             <h1>Vulpo</h1>
             <ul class="flex justify-between items-center">
                 <li>
-                    <a href="#section1">Section 1</a>
+                    <a href="#video-intro">Intro</a>
                 </li>
                 <li>
-                    <a href="#section2">Section 2</a>
+                    <a href="#about">about</a>
                 </li>
                 <li>
-                    <a href="#section3">Section 3</a>
+                    <a href="#download">download</a>
                 </li>
             </ul>
         </nav>
     </header>
     <main>
-        <section id="section1" class="h-screen">
-            <video>
+        <section id="video-intro" class="h-[525px] w-full">
+            <video autoplay muted loop class="w-full h-full object-cover bg-red-600">
                 <!--<source src="https://www.youtube.com/watch?v=9XaS93WMRQQ" type="video/mp4">-->
             </video>
-            <div class="flex flex-col justify-start items-center xl:max-w-[1140px] w-full">
-                <h2>COMPRENDRE ET PARTAGER LA NATURE</h2>
+        </section>
+        <section id="intro" class="w-full flex justify-center items-center">
+            
+            <div class="flex flex-col justify-center items-start xl:max-w-[1140px] w-full">
+                <h2>
+                    COMPRENDRE ET PARTAGER LA NATURE</h2>
                 <p>Vulpo est votre compagnon de balade qui vous accompagnera dans la nature, il vous en apprend plus sur ce qui vous entoure et vous permet de le partager avec les autres utilisateurs.</p>
-                <a href="#section3">Téléchargez Vulpo</a>
+                <a href="#download">Téléchargez Vulpo</a>
             </div>
             <!-- arrow down in circle in the middle of the screen and when click it go to the next section -->
-            <a href="#section2">
+            <a href="#about" class="absolute bottom-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex justify-center items-center w-[60px] h-[60px] bg-gray-900 rounded-full">
                 <i class="fas fa-arrow-down"></i>
             </a>
                 
         </section>
-        <section id="section2" class="h-screen">
-            <h1>Section 2</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+        <section id="about" class="h-[568px] flex justify-center items-center">
+            <div class="max-w-[1140px] grid grid-cols-2 gap-[20px]">
+                <div class="flex flex-col justify-center items-end text-right">
+                    <h2>Qui sommes nous ?</h2>
+                    <p>
+                        Explorez la nature comme jamais auparavant avec Vulpo : votre compagnon ultime pour des aventures en plein air. Découvrez les secrets de chaque balade, des rencontres animales fascinantes aux sentiers les plus sauvages. Téléchargez Vulpo dès maintenant et plongez dans une expérience nature inoubliable !
+                    </p>
+                </div>
+                <div class="">
+                    <img src="" alt="">
+                </div>
+            </div>
+            
         </section>
-        <section id="section3" class="h-screen">
-            <h1>Section 3</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+        <section id="interview" class="w-full flex justify-center items-center">
+            <div class="w-[1140px]">
+                <video autoplay muted loop class="w-full w-[1140px] bg-red-600">
+                    <!--<source src="https://www.youtube.com/watch?v=9XaS93WMRQQ" type="video/mp4">-->
+                </video>
+                <p><em>Interview de Stéphane Patry</em></p>
+            </div>
+        </section>
+        <section id="contact" class="h-[320px] flex justify-center items-center flex-col">
+            <h2>Nous contactez</h2>
+            <!-- phone number -->
+            <div class="flex justify-center items-center">
+                <i class="fas fa-phone-alt"></i>
+                <p>04 50 74 98 33</p>
+            </div>
+            <!-- email -->
+            <div class="flex justify-center items-center">
+                <i class="fas fa-envelope"></i>
+                <p>
+                    <a href="mailto:contact@vulpo.com">
+                        contact@vulpo.com
+                    </a>
+                </p>
+            </div>
+        </section>
+        <section id="download" class="h-[320px] flex justify-center items-center flex-col mb-0">
+            <img src="" alt="" class="w-[93px] ratio-1/1">
+            <h2>Vulpo</h2>
+            <p>Téléchargez Vulpo dès maintenant et plongez dans une expérience nature inoubliable !</p>
+            <div class="flex justify-center items-center h-[50px]">
+                <a href="https://play.google.com/store/apps/details?id=com.vulpo.app">
+                    <img src="" alt="">
+                    <p>Google Play</p>
+                </a>
+                <a href="https://apps.apple.com/fr/app/vulpo/id1580106549">
+                    <img src="" alt="">
+                    <p>App Store</p>
+                </a>
+            </div>
         </section>
     </main>
-    <footer>
-
+    <footer class="h-[100px] bg-gray-900 text-white flex justify-center items-center">
+        <div class="flex justify-between items-center xl:max-w-[1140px] w-full">
+            <p>© 2021 Vulpo</p>
+        </div>
     </footer>
 </body>
 </html>
