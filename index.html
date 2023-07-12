@@ -72,6 +72,25 @@
             overflow: hidden;
         }
 
+        #arrowDown {
+            animation: arrowDownEnter 1.5s ease-out 1;
+        }
+
+        @keyframes arrowDownEnter {
+            0% {
+                transform: translateY(-300%) translateX(-50%);
+                opacity: 0;
+            }
+            60% {
+                transform: translateY(-300%) translateX(-50%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(-100%) translateX(-50%);
+                opacity: 1;
+            }
+        }
+
 
         section {
             padding-top: 60px;
@@ -163,13 +182,13 @@
             <h2 class="mb-[20px] text-[#FFB526]">
                 Nous contactez</h2>
             <!-- phone number -->
-            <div class="flex justify-center items-center gap-[10px] rounded-full bg-[#F0F7F1] px-[20px] py-[10px] mb-[20px] hover:bg-[#FFB526]">
+            <div id="phoneWrapper" class="flex justify-center items-center gap-[10px] rounded-full bg-[#F0F7F1] px-[20px] py-[10px] mb-[20px] transition -bg duration-300 hover:bg-[#FFB526]">
                 <i class="fas fa-phone-alt text-[#1E261F]"></i>
                 <p class="text-[#1E261F]">
                     04 50 74 98 33</p>
             </div>
             <!-- email -->
-            <div class="flex justify-center items-center gap-[10px] rounded-full bg-[#F0F7F1] px-[20px] py-[10px] hover:bg-[#FFB526]">
+            <div id="emailWrapper" class="flex justify-center items-center gap-[10px] rounded-full bg-[#F0F7F1] px-[20px] py-[10px] transition -bg duration-300 hover:bg-[#FFB526]">
                 <i class="fas fa-envelope text-[#1E261F]"></i>
                 <p class="text-[#1E261F]">
                     <a href="mailto:contact@vulpo.com">
@@ -203,7 +222,7 @@
     </main>
     <footer class="h-[100px] bg-black text-white flex justify-center items-center px-[24px]">
         <div class="flex justify-between items-center xl:max-w-[1140px] w-full">
-            <p>© 2021 Vulpo</p>
+            <p>© 2023 Vulpo</p>
         </div>
     </footer>
 
@@ -244,6 +263,78 @@
       function onPlayerReady(event) {
         event.target.playVideo();
       }
+    </script>
+    <script>
+        // on scroll event, change the opacity of the arrow down ( 1 to 0 for scroll position 0 to screen height)
+
+        // on scroll
+        document.addEventListener('scroll', () => {
+            console.log('scroll')
+            // get the scroll position
+            let scrollPosition = window.scrollY;
+            // get the screen height
+            let screenHeight = window.innerHeight;
+            
+            // change the opacity of the arrow down
+            changeOpacityArrowDown(scrollPosition, screenHeight);
+
+            // change the transform y of the aboutImg
+            changeTransformYAboutImg(scrollPosition, screenHeight);
+
+            // pop phone wrapper and email wrapper
+            popPhoneAndEmailWrapper(scrollPosition, screenHeight);
+        })
+
+        // change the opacity of the arrow down
+        function changeOpacityArrowDown(scrollPosition, screenHeight) {
+            // get the arrow down
+            let arrowDown = document.querySelector('#arrowDown');
+            // change the opacity of the arrow down
+            // get the opacity
+            let opacity = 1 - (scrollPosition / (screenHeight-300));
+            // change the opacity of the arrow down
+            if(opacity < 0) {
+                opacity = 0;
+            } else if(opacity > 1) {
+                opacity = 1;
+            }
+            arrowDown.style.opacity = opacity;
+        }
+
+        // change the transform y of the aboutImg
+        function changeTransformYAboutImg(scrollPosition, screenHeight) {
+            let aboutImg = document.querySelector('#aboutImg');
+            let transformY = 0 - ((scrollPosition - screenHeight - 60) / 6);
+            aboutImg.style.transform = `translateY(${transformY}px) rotateZ(4deg)`;
+        }
+
+        // pop phone And Email Wrapper
+        async function popPhoneAndEmailWrapper(scrollPosition, screenHeight) {
+            let phoneWrapper = document.querySelector('#phoneWrapper');
+            let emailWrapper = document.querySelector('#emailWrapper');
+            let phoneWrapperRect = phoneWrapper.getBoundingClientRect();
+            let emailWrapperRect = emailWrapper.getBoundingClientRect();
+            let phoneWrapperTop = phoneWrapperRect.top;
+            let emailWrapperTop = emailWrapperRect.top;
+            if(phoneWrapperTop < screenHeight) {
+                phoneWrapper.style.transform = `scale(1)`;
+                await sleep(200);
+            }else {
+                phoneWrapper.style.transform = `scale(0)`;
+            }
+
+            if(emailWrapperTop < screenHeight) {
+                emailWrapper.style.transform = `scale(1)`;
+            }else {
+                emailWrapper.style.transform = `scale(0)`;
+            }
+        }
+
+        // sleep function
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+            
     </script>
         
 </body>
