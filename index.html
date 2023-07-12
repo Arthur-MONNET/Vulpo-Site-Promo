@@ -1,0 +1,63 @@
+<!-- system de section avec de bouton qui redirige vers les section 
+    site one page avec des section qui sont focus lors du click sur le bouton leur correspondant dans le header
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--tailwind-->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Vulpo</title>
+</head>
+<body>
+    <header class="fixed top-0 left-0 w-full h-[140px] bg-gray-900 text-white p-4 flex justify-center items-center">
+        
+        <nav class="flex justify-between items-center xl:max-w-[1140px] w-full">
+            <h1>Vulpo</h1>
+            <ul class="flex justify-between items-center">
+                <li>
+                    <a href="#section1">Section 1</a>
+                </li>
+                <li>
+                    <a href="#section2">Section 2</a>
+                </li>
+                <li>
+                    <a href="#section3">Section 3</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="section1" class="h-screen">
+            <video>
+                <!--<source src="https://www.youtube.com/watch?v=9XaS93WMRQQ" type="video/mp4">-->
+            </video>
+            <div class="flex flex-col justify-start items-center xl:max-w-[1140px] w-full">
+                <h2>COMPRENDRE ET PARTAGER LA NATURE</h2>
+                <p>Vulpo est votre compagnon de balade qui vous accompagnera dans la nature, il vous en apprend plus sur ce qui vous entoure et vous permet de le partager avec les autres utilisateurs.</p>
+                <a href="#section3">Téléchargez Vulpo</a>
+            </div>
+            <!-- arrow down in circle in the middle of the screen and when click it go to the next section -->
+            <a href="#section2">
+                <i class="fas fa-arrow-down"></i>
+            </a>
+                
+        </section>
+        <section id="section2" class="h-screen">
+            <h1>Section 2</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+        </section>
+        <section id="section3" class="h-screen">
+            <h1>Section 3</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>
