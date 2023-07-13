@@ -1,0 +1,17 @@
+<!-- redirect on fr/index.html if language of browser is french -->
+<!-- redirect on en/index.html if language of browser is english -->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Redirect</title>
+    <script>
+        var lang = navigator.language || navigator.userLanguage;
+        if (lang == "fr") {
+            window.location.replace("fr/index.html");
+        } else {
+            window.location.replace("en/index.html");
+        }
+    </script>
+</html>
