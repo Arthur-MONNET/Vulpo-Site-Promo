@@ -1,0 +1,515 @@
+<!-- system de section avec de bouton qui redirige vers les section 
+    site one page avec des section qui sont focus lors du click sur le bouton leur correspondant dans le header
+-->
+
+<!-- page en englais-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--tailwind-->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Vulpo</title>
+    <style>
+
+        @font-face {
+            font-family: "Goruts";
+            src: url("../Goruts.ttf");
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: "Outfit";
+            src: url("../Outfit-VariableFont_wght.ttf");
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @media screen and (max-height: 800px) {
+            .black-header {
+                display: none;
+            }
+        }
+
+        @media screen and (max-height: 725px) {
+            #arrowDown {
+                display:none;
+            }
+        }
+
+        body {
+            background-color: #1e261f;
+            scroll-behavior: smooth;
+        }
+
+        *{
+            color: #F0F7F1;
+            font-family: "Outfit";
+            font-size: 16px;
+        }
+
+        *, html {
+            scroll-behavior: smooth !important;
+        }
+
+        h2 {
+            font-size: 30px !important;
+            font-family: "Goruts";
+        }
+
+        h1 {
+            font-size: 37px !important;
+            font-family: "Goruts";
+        }
+
+        #intro {
+            height: calc(100vh - 500px);
+            margin-bottom: -25px;
+        }
+
+        #aboutImg {
+            width: 357px;
+            border-radius: 16px;
+            box-shadow: 12px 17px 41px -17px rgba(0,0,0,0.5);
+            transform: rotateZ(4deg);
+        }
+
+        #iframeInterview {
+            box-shadow: 15px 20px 27px -9px rgba(0,0,0,0.5);
+        }
+
+        #download {
+            overflow: hidden;
+        }
+
+        #arrowDown {
+            animation: arrowDownEnter 1.5s ease-out 1;
+        }
+
+        @keyframes arrowDownEnter {
+            0% {
+                transform: translateY(-300%) translateX(-50%);
+                opacity: 0;
+            }
+            60% {
+                transform: translateY(-300%) translateX(-50%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(-100%) translateX(-50%);
+                opacity: 1;
+            }
+        }
+
+        @media screen and (max-width: 640px) {
+            .black-header {
+                display: none;
+            }
+            * {
+                font-size: 14px;
+            }
+
+            h2 {
+                font-size: 24px !important;
+            }
+        }
+
+
+        section {
+            padding-top: 60px;
+            margin-bottom: -60px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.5vw;
+            background: #121212;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: -webkit-linear-gradient(transparent,#3e3e3e);
+            background: linear-gradient(transparent,#3e3e3e);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: -webkit-linear-gradient(transparent,#4f4f4f);
+            background: linear-gradient(transparent,#4f4f4f);
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="black-header relative top-0 left-0 w-full h-[100px] bg-black mb-[-60px]"></div>
+    <nav class="sticky top-0 w-full flex justify-center items-center h-[60px] backdrop-filter backdrop-blur-lg bg-[#00000099] shadow-md z-30 px-[24px]">
+        <div class="flex justify-between items-center xl:max-w-[1140px] w-full">
+            <i id="menu" class="fas fa-bars sm:hidden text-[#FFB526]">
+            </i>
+            
+            <h1>Vulpo</h1>
+            <ul class="hidden sm:flex justify-between items-center gap-[30px] uppercase">
+                <li class="group">
+                    <a href="#about" class="text-[#FFB526] font-[Goruts]">
+                        who we are ?</a>
+                        <div class="underline bottom-0 left-0 w-[0%] h-[2px] bg-[#FFB526] opacity-20 transition-all duration-300 group-hover:w-full"></div>
+                </li>
+                <li class="group">
+                    <a href="#contact" class="text-[#FFB526] font-[Goruts]">
+                        contact</a>
+                        <div class="underline bottom-0 left-0 w-[0%] h-[2px] bg-[#FFB526] opacity-20 transition-all duration-300 group-hover:w-full"></div>
+                </li>
+                <li class="group">
+                    <a href="#download" class="text-[#FFB526] font-[Goruts]">
+                        download</a>
+                        <div class="underline bottom-0 left-0 w-[0%] h-[2px] bg-[#FFB526] opacity-20 transition-all duration-300 group-hover:w-full"></div>
+                </li>
+                <li id="grp-select-lang" class="group/all flex justify-center items-center h-[20px] cursor-pointer">
+                    <div class="custom-select flex justify-between items-start flex-col overflow-hidden h-[20px] group-hover/all:h-[50px] transition-all duration-200">
+                        <div id="first-lang" class="group/en custom-option flex justify-center items-center h-[20px] mb-[-20px] group-hover/all:h-[50%]">
+                            <img src="../flag-for-flag-united-kingdom-svgrepo-com.svg" alt="" class="w-[20px] mr-[10px]">
+                            <p class="text-[#FFB526] font-[Goruts]">
+                                english</p>
+                            </div>
+                        <a id="second-lang" class="group/fr bottom-0 custom-option flex justify-center opacity-0 group-hover/all:opacity-100 items-center transition-[opacity] duration-100 delay-0 hover:delay-100  group-hover/all:h-[50%]" href="/fr">
+                            <img src="../flag-for-flag-france.svg" alt="" class="w-[20px] mr-[10px]">
+                            <p class="text-[#FFB526] font-[Goruts]">
+                                français</p>
+                                
+                        </a>
+                    </div>
+                    <i id="select-lang" class="fas fa-chevron-down text-[#FFB526] ml-[15px] transform -rotate-0 transition-all duration-100"></i>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="black-header relative top-0 left-0 w-full h-[40px] bg-black"></div>
+    <div id="menuWrapper" class="sm:hidden sticky top-0 left-0 mb-[-180px] h-[240px] z-20 mt-[-60px] pt-[59px]">
+        <div class="overflow-hidden">
+            <ul class="flex justify-between gap-[30px] uppercase flex-col backdrop-blur-lg bg-[#00000099] p-[24px] transition duration-100" style="transform: translateY(-100%);">
+                <li class="group">
+                    <a href="#about" class="text-[#FFB526] font-[Goruts]">
+                        who we are ?</a>
+                </li>
+                <li class="group">
+                    <a href="#contact" class="text-[#FFB526] font-[Goruts]">
+                        contact</a>
+                </li>
+                <li class="group">
+                    <a href="#download" class="text-[#FFB526] font-[Goruts]">
+                        download</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <main>
+        <section id="video-intro" class="h-[385px] w-full pt-0 overflow-hidden flex items-center justify-center">
+            <div class="absolute left-0 w-full h-[387px] bg-gradient-to-b from-transparent to-[#1E261F]"></div>
+            <div class="w-full min-w-[900px] aspect-[16/9]">
+            <div id="player" class="w-full h-full"></div>
+            </div>
+        </section>
+        <section id="intro" class="px-[48px] w-full min-h-[400px] md:min-h-[238px] flex justify-center items-center lg:px-[24px]">
+            
+            <div class="flex flex-col justify-center items-start max-w-[600px] lg:max-w-[1140px] w-full">
+                <h2 class="mb-[10px] uppercase">UNDERSTAND AND SHARE NATURE</h2>
+                <p class="mb-[20px] lg:max-w-[700px] xl:max-w-[1076px]">
+                    Vulpo is your companion on nature walks, teaching you more about your surroundings and allowing you to share it with other users.</p>
+                <a href="#download" class="flex justify-center items-center bg-[#FFB526] text-[#1E261F] rounded-full px-[24px] py-[12px]">
+                    Download Vulpo</a>
+            </div>
+            <!-- arrow down in circle in the middle of the screen and when click it go to the next section -->
+            <a href="#about" id="arrowDown" class="absolute bottom-0 left-1/2 transform -translate-x-1/2 -translate-y-[100%] hidden sm:flex justify-center items-center w-[30px] h-[30px] bg-[#F0F7F1] rounded-full">
+                <i class="text-[#1E261F] fas fa-arrow-down"></i>
+            </a>
+                
+        </section>
+        <section id="about" class="px-[48px] h-[700px] lg:h-[568px] flex justify-center items-center lg:px-0">
+            <div class="lg:max-w-[896px] lg:h-[228px] grid grid-cols-1 gap-[40px] lg:gap-[20px] max-w-[600px] lg:grid-cols-2">
+                <div class="flex flex-col justify-center lg:items-end lg:text-right">
+                    <h2 class="mb-[20px] text-[#FFB526]">
+                        Who we are ?</h2>
+                    <p>
+                        Explore nature like never before with Vulpo: your ultimate companion for outdoor adventures. Discover the secrets behind every walk, from fascinating animal encounters to the wildest trails. Download Vulpo now and immerse yourself in an unforgettable nature experience!
+                    </p>
+                </div>
+                <div class="lg:h-[228px] flex justify-center items-center">
+                    <img id="aboutImg" src="../ZZ-scaled.jpg" alt="" class="bg-red-600 aspect-[2560/1463] h-full max-w-full lg:ml-[20px]">
+                </div>
+            </div>
+            
+        </section>
+        <section id="interview" class="w-full flex justify-center items-center px-[24px]">
+            <div class="w-[1140px]">
+                <iframe id="iframeInterview" src="https://www.youtube.com/embed/cNx12gUHmxw?controls=1&rel=0&playsinline=0&modestbranding=0&autoplay=0&enablejsapi=1&origin=https%3A%2F%2Fbenjaminhocq.com&widgetid=3" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full max-w-[1140px] aspect-[1.778] rounded-[16px]">
+
+                </iframe>
+                <p id="emInterview" class="mt-[20px]">
+                    <em>Interview with Stéphane Patry</em></p>
+            </div>
+        </section>
+        <section id="contact" class="h-[320px] flex justify-center items-center flex-col">
+            <h2 class="mb-[20px] text-[#FFB526]">
+                Contact us</h2>
+            <!-- phone number -->
+            <div id="phoneWrapper" class="flex justify-center items-center gap-[10px] rounded-full bg-[#F0F7F1] px-[20px] py-[10px] mb-[20px] transition -bg duration-200 hover:bg-[#FFB526]">
+                <i class="fas fa-phone-alt text-[#1E261F] pointer-events-none"></i>
+                <p class="text-[#1E261F] pointer-events-none">
+                    04 50 74 98 33</p>
+            </div>
+            <!-- email -->
+            <a  href="mailto:contact@vulpo.com" id="emailWrapper" class="flex justify-center items-center gap-[10px] rounded-full bg-[#F0F7F1] px-[20px] py-[10px] transition -bg duration-200 hover:bg-[#FFB526]">
+                <i class="fas fa-envelope text-[#1E261F] pointer-events-none"></i>
+                <p class="text-[#1E261F] pointer-events-none">
+                        contact@vulpo.com
+                </p>
+            </a>
+        </section>
+        <section id="download" class="h-[400px] flex justify-center items-center flex-col mb-0">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none" fill="#1E261F" class="w-[300%] sm:w-full sm:min-w-[1400px] h-[100px] mb-[-100px] top-0 left-0 z-10" id="svgshape">
+                <path class="elementor-shape-fill" d="M421.9,6.5c22.6-2.5,51.5,0.4,75.5,5.3c23.6,4.9,70.9,23.5,100.5,35.7c75.8,32.2,133.7,44.5,192.6,49.7
+                c23.6,2.1,48.7,3.5,103.4-2.5c54.7-6,106.2-25.6,106.2-25.6V0H0v30.3c0,0,72,32.6,158.4,30.5c39.2-0.7,92.8-6.7,134-22.4
+                c21.2-8.1,52.2-18.2,79.7-24.2C399.3,7.9,411.6,7.5,421.9,6.5z"></path>
+                </svg>
+            <div class="w-full h-full flex justify-center items-center flex-col bg-[url(../tyler-mullins-LIPPnswydYE-unsplash-scaled.jpg)] bg-cover bg-center">
+                <img src="../Fichier-6.png" alt="" class="w-[93px] aspect-1/1">
+                <h2>Vulpo</h2>
+                <p class="text-center">
+                    Download Vulpo now and immerse yourself in an unforgettable nature experience!</p>
+                <div class="flex justify-center items-center h-[50px] mt-[20px]">
+                    <a href="https://play.google.com/store/apps/details?id=com.vulpo.app" class="flex justify-center items-center bg-[#fff] rounded-full px-[10px] py-[4px] mr-[20px]">
+                        <img src="../Google__G__Logo.svg.png" alt="" class="w-[15px]">
+                        <p class="ml-[10px] text-[#1E261F]">
+                            Google Play</p>
+                    </a>
+                    <a href="https://apps.apple.com/fr/app/vulpo/id1580106549" class="flex justify-center items-center bg-[#2575fc] rounded-full px-[10px] py-[4px]">
+                        <img src="../Apple_logo_white.svg.png" alt="" class="w-[15px]">
+                        <p class="ml-[10px] text-[#F0F7F1]">
+                            App Store</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="h-[60px] sm:h-[100px] bg-black text-white flex justify-center items-center px-[24px]">
+        <div class="flex justify-between items-center xl:max-w-[1140px] w-full">
+            <p>© 2023 Vulpo</p>
+        </div>
+    </footer>
+
+    <script>
+      // This code loads the IFrame Player API code asynchronously.
+      var tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      // This function creates an <iframe> (and YouTube player) after the API code downloads.
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          height: '360',
+          width: '640',
+          videoId: 'CBxFhM7RtJ0',
+          playerVars: {
+            autoplay: 1,
+            controls: 0,
+            modestbranding: 1,
+            playsinline: 1,
+            enablejsapi: 1,
+            origin: 'https://arthur-monnet.github.io',
+            rel:0,
+            showinfo:0,
+            mute:1,
+            loop:1,
+            playlist: 'CBxFhM7RtJ0'
+          },
+          events: {
+            'onReady': onPlayerReady
+          }
+        });
+      }
+
+      // The API will call this function when the video player is ready.
+      function onPlayerReady(event) {
+        event.target.playVideo();
+      }
+    </script>
+    <script>
+        // on scroll event, change the opacity of the arrow down ( 1 to 0 for scroll position 0 to screen height)
+
+        // get the scroll position
+        let initScrollPosition = window.scrollY;
+        // get the screen height
+        let initScreenHeight = window.innerHeight;
+
+        // change the opacity of the arrow down
+        changeOpacityArrowDown(initScrollPosition, initScreenHeight);
+
+        // change the transform y of the aboutImg
+        changeTransformYAboutImg(initScrollPosition, initScreenHeight);
+
+        // change the transform y of the aboutImg
+        changeTransformYIframeInterview(initScrollPosition, initScreenHeight);
+
+        // pop phone wrapper and email wrapper
+        popPhoneAndEmailWrapper(initScrollPosition, initScreenHeight);
+
+        // on scroll
+        document.addEventListener('scroll', () => {
+            console.log('scroll')
+            // get the scroll position
+            let scrollPosition = window.scrollY;
+            // get the screen height
+            let screenHeight = window.innerHeight;
+            
+            // change the opacity of the arrow down
+            changeOpacityArrowDown(scrollPosition, screenHeight);
+
+            // change the transform y of the aboutImg
+            changeTransformYAboutImg(scrollPosition, screenHeight);
+
+            // change the transform y of the aboutImg
+            changeTransformYIframeInterview(scrollPosition, screenHeight);
+
+            // pop phone wrapper and email wrapper
+            popPhoneAndEmailWrapper(scrollPosition, screenHeight);
+        })
+
+        // change the opacity of the arrow down
+        function changeOpacityArrowDown(scrollPosition, screenHeight) {
+            // get the arrow down
+            let arrowDown = document.querySelector('#arrowDown');
+            // change the opacity of the arrow down
+            // get the opacity
+            let opacity = 1 - (scrollPosition / (screenHeight*0.6));
+            // change the opacity of the arrow down
+            if(opacity < 0) {
+                opacity = 0;
+            } else if(opacity > 1) {
+                opacity = 1;
+            }
+            arrowDown.style.opacity = opacity;
+        }
+
+        // change the transform y of the aboutImg
+        function changeTransformYAboutImg(scrollPosition, screenHeight) {
+            let aboutImg = document.querySelector('#aboutImg');
+            let transformY = 0 - ((scrollPosition - screenHeight - 60) / 6);
+            aboutImg.style.transform = `translateY(${transformY}px) rotateZ(4deg)`;
+        }
+
+        // change the transform y of the iframe interview
+        function changeTransformYIframeInterview(scrollPosition, screenHeight) {
+            let iframeInterview = document.querySelector('#iframeInterview');
+            let emInterview = document.querySelector('#emInterview');
+            let transformY = 0 - ((scrollPosition - screenHeight - 300) / 6);
+            iframeInterview.style.transform = `translateY(${transformY}px)`;
+            emInterview.style.transform = `translateY(${transformY}px)`;
+        }
+
+        // pop phone And Email Wrapper
+        async function popPhoneAndEmailWrapper(scrollPosition, screenHeight) {
+            let phoneWrapper = document.querySelector('#phoneWrapper');
+            let emailWrapper = document.querySelector('#emailWrapper');
+            let phoneWrapperRect = phoneWrapper.getBoundingClientRect();
+            let emailWrapperRect = emailWrapper.getBoundingClientRect();
+            let phoneWrapperTop = phoneWrapperRect.top;
+            let emailWrapperTop = emailWrapperRect.top;
+            if(phoneWrapperTop < screenHeight) {
+                phoneWrapper.style.transform = `scale(1)`;
+                await sleep(200);
+            }else {
+                phoneWrapper.style.transform = `scale(0)`;
+            }
+
+            if(emailWrapperTop < screenHeight) {
+                emailWrapper.style.transform = `scale(1)`;
+            }else {
+                emailWrapper.style.transform = `scale(0)`;
+            }
+        }
+
+        // sleep function
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+            
+    </script>
+    <script>
+        //on burger click, touch, show the menu
+        let menu = document.querySelector('#menu');
+        let menuWrapper = document.querySelector('#menuWrapper ul');
+        menu.addEventListener('click', () => {
+            if(menuWrapper.style.transform == 'translateY(-100%)') {
+                menuWrapper.style.transform = 'translateY(0)';
+                menu.classList.add('fa-times');
+                menu.classList.remove('fa-bars');
+            } else {
+                menuWrapper.style.transform = 'translateY(-100%)';
+                menu.classList.add('fa-bars');
+                menu.classList.remove('fa-times');
+            }
+        })
+
+        menu.addEventListener('touch', () => {
+            if(menuWrapper.style.transform == 'translateY(-100%)') {
+                menuWrapper.style.transform = 'translateY(0)';
+                menu.classList.add('fa-times');
+                menu.classList.remove('fa-bars');
+            } else {
+                menuWrapper.style.transform = 'translateY(-100%)';
+                menu.classList.add('fa-bars');
+                menu.classList.remove('fa-times');
+            }
+        })
+
+        // on click on a link in the menu, hide the menu
+        let menuLinks = document.querySelectorAll('#menuWrapper a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuWrapper.style.transform = 'translateY(-100%)';
+                menu.classList.add('fa-bars');
+                menu.classList.remove('fa-times');
+            })
+        })
+
+        // on touch on a link in the menu, hide the menu
+        menuLinks.forEach(link => {
+            link.addEventListener('touch', () => {
+                menuWrapper.style.transform = 'translateY(-100%)';
+                menu.classList.add('fa-bars');
+                menu.classList.remove('fa-times');
+            })
+        })
+    </script>
+    <script>
+        //set postion of select-lang
+        let selectLang = document.querySelector('#select-lang');
+        let firstSelect = document.querySelector('#first-lang');
+        let secondSelect = document.querySelector('#second-lang');
+        let grpSelectLang = document.querySelector('#grp-select-lang');
+
+
+        firstSelect.addEventListener('mouseover', () => {
+            selectLang.style.transform = 'rotate(90deg) translateX(-80%)';
+        })
+        secondSelect.addEventListener('mouseover', () => {
+            selectLang.style.transform = 'rotate(90deg) translateX(80%)';
+        })
+
+        firstSelect.addEventListener('mouseout', () => {
+            selectLang.style.transform = 'rotate(90deg) translateX(0%)';
+        })
+        secondSelect.addEventListener('mouseout', () => {
+            selectLang.style.transform = 'rotate(90deg) translateX(0%)';
+        })
+
+        grpSelectLang.addEventListener('mouseleave', () => {
+            selectLang.style.transform = 'rotate(0deg) translateX(0%)';
+        })
+
+
+    </script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 -->
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,14 +16,14 @@
 
         @font-face {
             font-family: "Goruts";
-            src: url("./Goruts.ttf");
+            src: url("../Goruts.ttf");
             font-weight: normal;
             font-style: normal;
         }
 
         @font-face {
             font-family: "Outfit";
-            src: url("./Outfit-VariableFont_wght.ttf");
+            src: url("../Outfit-VariableFont_wght.ttf");
             font-weight: normal;
             font-style: normal;
         }
@@ -42,12 +42,17 @@
 
         body {
             background-color: #1e261f;
+            scroll-behavior: smooth;
         }
 
         *{
             color: #F0F7F1;
             font-family: "Outfit";
             font-size: 16px;
+        }
+
+        *, html {
+            scroll-behavior: smooth !important;
         }
 
         h2 {
@@ -137,19 +142,41 @@
     <div class="black-header relative top-0 left-0 w-full h-[100px] bg-black mb-[-60px]"></div>
     <nav class="sticky top-0 w-full flex justify-center items-center h-[60px] backdrop-filter backdrop-blur-lg bg-[#00000099] shadow-md z-30 px-[24px]">
         <div class="flex justify-between items-center xl:max-w-[1140px] w-full">
-            <i id="menu" class="fas fa-bars sm:hidden">
+            <i id="menu" class="fas fa-bars sm:hidden text-[#FFB526]">
             </i>
             
             <h1>Vulpo</h1>
             <ul class="hidden sm:flex justify-between items-center gap-[30px] uppercase">
-                <li>
-                    <a href="#video-intro">Intro</a>
+                <li class="group">
+                    <a href="#about" class="text-[#FFB526] font-[Goruts]">
+                        qui sommes nous ?</a>
+                        <div class="underline bottom-0 left-0 w-[0%] h-[2px] bg-[#FFB526] opacity-20 transition-all duration-300 group-hover:w-full"></div>
                 </li>
-                <li>
-                    <a href="#about">about</a>
+                <li class="group">
+                    <a href="#contact" class="text-[#FFB526] font-[Goruts]">
+                        contact</a>
+                        <div class="underline bottom-0 left-0 w-[0%] h-[2px] bg-[#FFB526] opacity-20 transition-all duration-300 group-hover:w-full"></div>
                 </li>
-                <li>
-                    <a href="#download">download</a>
+                <li class="group">
+                    <a href="#download" class="text-[#FFB526] font-[Goruts]">
+                        télécharger</a>
+                        <div class="underline bottom-0 left-0 w-[0%] h-[2px] bg-[#FFB526] opacity-20 transition-all duration-300 group-hover:w-full"></div>
+                </li>
+                <li id="grp-select-lang" class="group/all flex justify-center items-center h-[20px] cursor-pointer">
+                    <div class="custom-select flex justify-between items-start flex-col overflow-hidden h-[20px] group-hover/all:h-[50px] transition-all duration-200">
+                        <div id="first-lang" class="group/fr custom-option flex justify-center items-center h-[20px] mb-[-20px] group-hover/all:h-[50%]">
+                            <img src="../flag-for-flag-france.svg" alt="" class="w-[20px] mr-[10px]">
+                            <p class="text-[#FFB526] font-[Goruts]">
+                                français</p>
+                            </div>
+                        <a id="second-lang" class="group/en bottom-0 custom-option flex justify-center opacity-0 group-hover/all:opacity-100 items-center transition-[opacity] duration-100 delay-0 hover:delay-100  group-hover/all:h-[50%]" href="/en">
+                            <img src="../flag-for-flag-united-kingdom-svgrepo-com.svg" alt="" class="w-[20px] mr-[10px]">
+                            <p class="text-[#FFB526] font-[Goruts]">
+                                english</p>
+                                
+                        </a>
+                    </div>
+                    <i id="select-lang" class="fas fa-chevron-down text-[#FFB526] ml-[15px] transform -rotate-0 transition-all duration-100"></i>
                 </li>
             </ul>
         </div>
@@ -158,14 +185,17 @@
     <div id="menuWrapper" class="sm:hidden sticky top-0 left-0 mb-[-180px] h-[240px] z-20 mt-[-60px] pt-[59px]">
         <div class="overflow-hidden">
             <ul class="flex justify-between gap-[30px] uppercase flex-col backdrop-blur-lg bg-[#00000099] p-[24px] transition duration-100" style="transform: translateY(-100%);">
-                <li>
-                    <a href="#video-intro">Intro</a>
+                <li class="group">
+                    <a href="#about" class="text-[#FFB526] font-[Goruts]">
+                        qui sommes nous ?</a>
                 </li>
-                <li>
-                    <a href="#about">about</a>
+                <li class="group">
+                    <a href="#contact" class="text-[#FFB526] font-[Goruts]">
+                        contact</a>
                 </li>
-                <li>
-                    <a href="#download">download</a>
+                <li class="group">
+                    <a href="#download" class="text-[#FFB526] font-[Goruts]">
+                        télécharger</a>
                 </li>
             </ul>
         </div>
@@ -202,7 +232,7 @@
                     </p>
                 </div>
                 <div class="lg:h-[228px] flex justify-center items-center">
-                    <img id="aboutImg" src="./ZZ-scaled.jpg" alt="" class="bg-red-600 aspect-[2560/1463] h-full max-w-full lg:ml-[20px]">
+                    <img id="aboutImg" src="../ZZ-scaled.jpg" alt="" class="bg-red-600 aspect-[2560/1463] h-full max-w-full lg:ml-[20px]">
                 </div>
             </div>
             
@@ -218,7 +248,7 @@
         </section>
         <section id="contact" class="h-[320px] flex justify-center items-center flex-col">
             <h2 class="mb-[20px] text-[#FFB526]">
-                Nous contactez</h2>
+                Nous contacter</h2>
             <!-- phone number -->
             <div id="phoneWrapper" class="flex justify-center items-center gap-[10px] rounded-full bg-[#F0F7F1] px-[20px] py-[10px] mb-[20px] transition -bg duration-200 hover:bg-[#FFB526]">
                 <i class="fas fa-phone-alt text-[#1E261F] pointer-events-none"></i>
@@ -239,19 +269,19 @@
                 c23.6,2.1,48.7,3.5,103.4-2.5c54.7-6,106.2-25.6,106.2-25.6V0H0v30.3c0,0,72,32.6,158.4,30.5c39.2-0.7,92.8-6.7,134-22.4
                 c21.2-8.1,52.2-18.2,79.7-24.2C399.3,7.9,411.6,7.5,421.9,6.5z"></path>
                 </svg>
-            <div class="w-full h-full flex justify-center items-center flex-col bg-[url(./tyler-mullins-LIPPnswydYE-unsplash-scaled.jpg)] bg-cover bg-center">
-                <img src="./Fichier-6.png" alt="" class="w-[93px] aspect-1/1">
+            <div class="w-full h-full flex justify-center items-center flex-col bg-[url(../tyler-mullins-LIPPnswydYE-unsplash-scaled.jpg)] bg-cover bg-center">
+                <img src="../Fichier-6.png" alt="" class="w-[93px] aspect-1/1">
                 <h2>Vulpo</h2>
                 <p class="text-center">
                     Téléchargez Vulpo dès maintenant et plongez dans une expérience nature inoubliable !</p>
                 <div class="flex justify-center items-center h-[50px] mt-[20px]">
                     <a href="https://play.google.com/store/apps/details?id=com.vulpo.app" class="flex justify-center items-center bg-[#fff] rounded-full px-[10px] py-[4px] mr-[20px]">
-                        <img src="./Google__G__Logo.svg.png" alt="" class="w-[15px]">
+                        <img src="../Google__G__Logo.svg.png" alt="" class="w-[15px]">
                         <p class="ml-[10px] text-[#1E261F]">
                             Google Play</p>
                     </a>
                     <a href="https://apps.apple.com/fr/app/vulpo/id1580106549" class="flex justify-center items-center bg-[#2575fc] rounded-full px-[10px] py-[4px]">
-                        <img src="./Apple_logo_white.svg.png" alt="" class="w-[15px]">
+                        <img src="../Apple_logo_white.svg.png" alt="" class="w-[15px]">
                         <p class="ml-[10px] text-[#F0F7F1]">
                             App Store</p>
                     </a>
@@ -450,6 +480,34 @@
                 menu.classList.remove('fa-times');
             })
         })
+    </script>
+    <script>
+        //set postion of select-lang
+        let selectLang = document.querySelector('#select-lang');
+        let firstSelect = document.querySelector('#first-lang');
+        let secondSelect = document.querySelector('#second-lang');
+        let grpSelectLang = document.querySelector('#grp-select-lang');
+
+
+        firstSelect.addEventListener('mouseover', () => {
+            selectLang.style.transform = 'rotate(90deg) translateX(-80%)';
+        })
+        secondSelect.addEventListener('mouseover', () => {
+            selectLang.style.transform = 'rotate(90deg) translateX(80%)';
+        })
+
+        firstSelect.addEventListener('mouseout', () => {
+            selectLang.style.transform = 'rotate(90deg) translateX(0%)';
+        })
+        secondSelect.addEventListener('mouseout', () => {
+            selectLang.style.transform = 'rotate(90deg) translateX(0%)';
+        })
+
+        grpSelectLang.addEventListener('mouseleave', () => {
+            selectLang.style.transform = 'rotate(0deg) translateX(0%)';
+        })
+
+
     </script>
 </body>
 </html>
