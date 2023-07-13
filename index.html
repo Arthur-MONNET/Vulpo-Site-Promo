@@ -28,6 +28,18 @@
             font-style: normal;
         }
 
+        @media screen and (max-height: 800px) {
+            .black-header {
+                display: none;
+            }
+        }
+
+        @media screen and (max-height: 725px) {
+            #arrowDown {
+                display:none;
+            }
+        }
+
         body {
             background-color: #1e261f;
         }
@@ -64,10 +76,6 @@
             box-shadow: 15px 20px 27px -9px rgba(0,0,0,0.5);
         }
 
-        #svgshape {
-            width: calc(173% + 1.3px);
-        }
-
         #download {
             overflow: hidden;
         }
@@ -88,6 +96,19 @@
             100% {
                 transform: translateY(-100%) translateX(-50%);
                 opacity: 1;
+            }
+        }
+
+        @media screen and (max-width: 640px) {
+            .black-header {
+                display: none;
+            }
+            * {
+                font-size: 14px;
+            }
+
+            h2 {
+                font-size: 24px !important;
             }
         }
 
@@ -113,58 +134,75 @@
     </style>
 </head>
 <body>
-    <div class="relative top-0 left-0 w-full h-[100px] bg-black mb-[-60px]"></div>
-    <nav class="sticky top-0 w-full flex justify-center items-center h-[60px] backdrop-filter backdrop-blur-lg bg-[#00000099] shadow-md z-20 px-[24px]">
-            <div class="flex justify-between items-center xl:max-w-[1140px] w-full">
-                <h1>Vulpo</h1>
-                <ul class="flex justify-between items-center gap-[30px] uppercase">
-                    <li>
-                        <a href="#video-intro">Intro</a>
-                    </li>
-                    <li>
-                        <a href="#about">about</a>
-                    </li>
-                    <li>
-                        <a href="#download">download</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        <div class="relative top-0 left-0 w-full h-[40px] bg-black"></div>
-    
+    <div class="black-header relative top-0 left-0 w-full h-[100px] bg-black mb-[-60px]"></div>
+    <nav class="sticky top-0 w-full flex justify-center items-center h-[60px] backdrop-filter backdrop-blur-lg bg-[#00000099] shadow-md z-30 px-[24px]">
+        <div class="flex justify-between items-center xl:max-w-[1140px] w-full">
+            <i id="menu" class="fas fa-bars sm:hidden">
+            </i>
+            
+            <h1>Vulpo</h1>
+            <ul class="hidden sm:flex justify-between items-center gap-[30px] uppercase">
+                <li>
+                    <a href="#video-intro">Intro</a>
+                </li>
+                <li>
+                    <a href="#about">about</a>
+                </li>
+                <li>
+                    <a href="#download">download</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="black-header relative top-0 left-0 w-full h-[40px] bg-black"></div>
+    <div id="menuWrapper" class="sm:hidden sticky top-0 left-0 mb-[-180px] h-[240px] z-20 mt-[-60px] pt-[59px]">
+        <div class="overflow-hidden">
+            <ul class="flex justify-between gap-[30px] uppercase flex-col backdrop-blur-lg bg-[#00000099] p-[24px] transition duration-100" style="transform: translateY(-100%);">
+                <li>
+                    <a href="#video-intro">Intro</a>
+                </li>
+                <li>
+                    <a href="#about">about</a>
+                </li>
+                <li>
+                    <a href="#download">download</a>
+                </li>
+            </ul>
+        </div>
+    </div>
     <main>
         <section id="video-intro" class="h-[385px] w-full pt-0 overflow-hidden flex items-center justify-center">
-            <div class="absolute left-0 w-full h-[385px] bg-gradient-to-b from-transparent to-[#1E261F]"></div>
-            <div class="w-full aspect-[16/9]">
+            <div class="absolute left-0 w-full h-[387px] bg-gradient-to-b from-transparent to-[#1E261F]"></div>
+            <div class="w-full min-w-[900px] aspect-[16/9]">
             <div id="player" class="w-full h-full"></div>
             </div>
         </section>
-        <section id="intro" class="w-full flex justify-center items-center px-[24px]">
+        <section id="intro" class="px-[48px] w-full min-h-[400px] md:min-h-[238px] flex justify-center items-center lg:px-[24px]">
             
-            <div class="flex flex-col justify-center items-start xl:max-w-[1140px] w-full">
+            <div class="flex flex-col justify-center items-start max-w-[600px] lg:max-w-[1140px] w-full">
                 <h2 class="mb-[10px]">COMPRENDRE ET PARTAGER LA NATURE</h2>
-                <p class="mb-[20px] max-w-[1076px]">
+                <p class="mb-[20px] lg:max-w-[700px] xl:max-w-[1076px]">
                     Vulpo est votre compagnon de balade qui vous accompagnera dans la nature, il vous en apprend plus sur ce qui vous entoure et vous permet de le partager avec les autres utilisateurs.</p>
                 <a href="#download" class="flex justify-center items-center bg-[#FFB526] text-[#1E261F] rounded-full px-[24px] py-[12px]">
                     Téléchargez Vulpo</a>
             </div>
             <!-- arrow down in circle in the middle of the screen and when click it go to the next section -->
-            <a href="#about" id="arrowDown" class="absolute bottom-0 left-1/2 transform -translate-x-1/2 -translate-y-[100%] flex justify-center items-center w-[30px] h-[30px] bg-[#F0F7F1] rounded-full">
+            <a href="#about" id="arrowDown" class="absolute bottom-0 left-1/2 transform -translate-x-1/2 -translate-y-[100%] hidden sm:flex justify-center items-center w-[30px] h-[30px] bg-[#F0F7F1] rounded-full">
                 <i class="text-[#1E261F] fas fa-arrow-down"></i>
             </a>
                 
         </section>
-        <section id="about" class="h-[568px] flex justify-center items-center">
-            <div class="max-w-[896px] h-[228px] grid grid-cols-2 gap-[20px]">
-                <div class="flex flex-col justify-center items-end text-right">
+        <section id="about" class="px-[48px] h-[700px] lg:h-[568px] flex justify-center items-center lg:px-0">
+            <div class="lg:max-w-[896px] lg:h-[228px] grid grid-cols-1 gap-[40px] lg:gap-[20px] max-w-[600px] lg:grid-cols-2">
+                <div class="flex flex-col justify-center lg:items-end lg:text-right">
                     <h2 class="mb-[20px] text-[#FFB526]">
                         Qui sommes nous ?</h2>
                     <p>
                         Explorez la nature comme jamais auparavant avec Vulpo : votre compagnon ultime pour des aventures en plein air. Découvrez les secrets de chaque balade, des rencontres animales fascinantes aux sentiers les plus sauvages. Téléchargez Vulpo dès maintenant et plongez dans une expérience nature inoubliable !
                     </p>
                 </div>
-                <div class="h-[228px]">
-                    <img id="aboutImg" src="./ZZ-scaled.jpg" alt="" class="bg-red-600 aspect-[2560/1463] h-full max-w-full ml-[20px]"
+                <div class="lg:h-[228px] flex justify-center items-center">
+                    <img id="aboutImg" src="./ZZ-scaled.jpg" alt="" class="bg-red-600 aspect-[2560/1463] h-full max-w-full lg:ml-[20px]">
                 </div>
             </div>
             
@@ -174,7 +212,7 @@
                 <iframe id="iframeInterview" src="https://www.youtube.com/embed/cNx12gUHmxw?controls=1&rel=0&playsinline=0&modestbranding=0&autoplay=0&enablejsapi=1&origin=https%3A%2F%2Fbenjaminhocq.com&widgetid=3" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full max-w-[1140px] aspect-[1.778] rounded-[16px]">
 
                 </iframe>
-                <p class="mt-[20px]">
+                <p id="emInterview" class="mt-[20px]">
                     <em>Interview de Stéphane Patry</em></p>
             </div>
         </section>
@@ -182,23 +220,21 @@
             <h2 class="mb-[20px] text-[#FFB526]">
                 Nous contactez</h2>
             <!-- phone number -->
-            <div id="phoneWrapper" class="flex justify-center items-center gap-[10px] rounded-full bg-[#F0F7F1] px-[20px] py-[10px] mb-[20px] transition -bg duration-300 hover:bg-[#FFB526]">
-                <i class="fas fa-phone-alt text-[#1E261F]"></i>
-                <p class="text-[#1E261F]">
+            <div id="phoneWrapper" class="flex justify-center items-center gap-[10px] rounded-full bg-[#F0F7F1] px-[20px] py-[10px] mb-[20px] transition -bg duration-200 hover:bg-[#FFB526]">
+                <i class="fas fa-phone-alt text-[#1E261F] pointer-events-none"></i>
+                <p class="text-[#1E261F] pointer-events-none">
                     04 50 74 98 33</p>
             </div>
             <!-- email -->
-            <div id="emailWrapper" class="flex justify-center items-center gap-[10px] rounded-full bg-[#F0F7F1] px-[20px] py-[10px] transition -bg duration-300 hover:bg-[#FFB526]">
-                <i class="fas fa-envelope text-[#1E261F]"></i>
-                <p class="text-[#1E261F]">
-                    <a href="mailto:contact@vulpo.com">
+            <a  href="mailto:contact@vulpo.com" id="emailWrapper" class="flex justify-center items-center gap-[10px] rounded-full bg-[#F0F7F1] px-[20px] py-[10px] transition -bg duration-200 hover:bg-[#FFB526]">
+                <i class="fas fa-envelope text-[#1E261F] pointer-events-none"></i>
+                <p class="text-[#1E261F] pointer-events-none">
                         contact@vulpo.com
-                    </a>
                 </p>
-            </div>
+            </a>
         </section>
-        <section id="download" class="h-[320px] flex justify-center items-center flex-col mb-0">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none" fill="#1E261F" class="w-full h-[100px] mb-[-100px] top-0 left-0 z-10" id="svgshape">
+        <section id="download" class="h-[400px] flex justify-center items-center flex-col mb-0">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none" fill="#1E261F" class="w-[300%] sm:w-full sm:min-w-[1400px] h-[100px] mb-[-100px] top-0 left-0 z-10" id="svgshape">
                 <path class="elementor-shape-fill" d="M421.9,6.5c22.6-2.5,51.5,0.4,75.5,5.3c23.6,4.9,70.9,23.5,100.5,35.7c75.8,32.2,133.7,44.5,192.6,49.7
                 c23.6,2.1,48.7,3.5,103.4-2.5c54.7-6,106.2-25.6,106.2-25.6V0H0v30.3c0,0,72,32.6,158.4,30.5c39.2-0.7,92.8-6.7,134-22.4
                 c21.2-8.1,52.2-18.2,79.7-24.2C399.3,7.9,411.6,7.5,421.9,6.5z"></path>
@@ -206,21 +242,24 @@
             <div class="w-full h-full flex justify-center items-center flex-col bg-[url(./tyler-mullins-LIPPnswydYE-unsplash-scaled.jpg)] bg-cover bg-center">
                 <img src="./Fichier-6.png" alt="" class="w-[93px] aspect-1/1">
                 <h2>Vulpo</h2>
-                <p>Téléchargez Vulpo dès maintenant et plongez dans une expérience nature inoubliable !</p>
-                <div class="flex justify-center items-center h-[50px]">
-                    <a href="https://play.google.com/store/apps/details?id=com.vulpo.app">
-                        <img src="" alt="">
-                        <p>Google Play</p>
+                <p class="text-center">
+                    Téléchargez Vulpo dès maintenant et plongez dans une expérience nature inoubliable !</p>
+                <div class="flex justify-center items-center h-[50px] mt-[20px]">
+                    <a href="https://play.google.com/store/apps/details?id=com.vulpo.app" class="flex justify-center items-center bg-[#fff] rounded-full px-[10px] py-[4px] mr-[20px]">
+                        <img src="./Google__G__Logo.svg.png" alt="" class="w-[15px]">
+                        <p class="ml-[10px] text-[#1E261F]">
+                            Google Play</p>
                     </a>
-                    <a href="https://apps.apple.com/fr/app/vulpo/id1580106549">
-                        <img src="" alt="">
-                        <p>App Store</p>
+                    <a href="https://apps.apple.com/fr/app/vulpo/id1580106549" class="flex justify-center items-center bg-[#2575fc] rounded-full px-[10px] py-[4px]">
+                        <img src="./Apple_logo_white.svg.png" alt="" class="w-[15px]">
+                        <p class="ml-[10px] text-[#F0F7F1]">
+                            App Store</p>
                     </a>
                 </div>
             </div>
         </section>
     </main>
-    <footer class="h-[100px] bg-black text-white flex justify-center items-center px-[24px]">
+    <footer class="h-[60px] sm:h-[100px] bg-black text-white flex justify-center items-center px-[24px]">
         <div class="flex justify-between items-center xl:max-w-[1140px] w-full">
             <p>© 2023 Vulpo</p>
         </div>
@@ -267,6 +306,23 @@
     <script>
         // on scroll event, change the opacity of the arrow down ( 1 to 0 for scroll position 0 to screen height)
 
+        // get the scroll position
+        let initScrollPosition = window.scrollY;
+        // get the screen height
+        let initScreenHeight = window.innerHeight;
+
+        // change the opacity of the arrow down
+        changeOpacityArrowDown(initScrollPosition, initScreenHeight);
+
+        // change the transform y of the aboutImg
+        changeTransformYAboutImg(initScrollPosition, initScreenHeight);
+
+        // change the transform y of the aboutImg
+        changeTransformYIframeInterview(initScrollPosition, initScreenHeight);
+
+        // pop phone wrapper and email wrapper
+        popPhoneAndEmailWrapper(initScrollPosition, initScreenHeight);
+
         // on scroll
         document.addEventListener('scroll', () => {
             console.log('scroll')
@@ -281,6 +337,9 @@
             // change the transform y of the aboutImg
             changeTransformYAboutImg(scrollPosition, screenHeight);
 
+            // change the transform y of the aboutImg
+            changeTransformYIframeInterview(scrollPosition, screenHeight);
+
             // pop phone wrapper and email wrapper
             popPhoneAndEmailWrapper(scrollPosition, screenHeight);
         })
@@ -291,7 +350,7 @@
             let arrowDown = document.querySelector('#arrowDown');
             // change the opacity of the arrow down
             // get the opacity
-            let opacity = 1 - (scrollPosition / (screenHeight-300));
+            let opacity = 1 - (scrollPosition / (screenHeight*0.6));
             // change the opacity of the arrow down
             if(opacity < 0) {
                 opacity = 0;
@@ -306,6 +365,15 @@
             let aboutImg = document.querySelector('#aboutImg');
             let transformY = 0 - ((scrollPosition - screenHeight - 60) / 6);
             aboutImg.style.transform = `translateY(${transformY}px) rotateZ(4deg)`;
+        }
+
+        // change the transform y of the iframe interview
+        function changeTransformYIframeInterview(scrollPosition, screenHeight) {
+            let iframeInterview = document.querySelector('#iframeInterview');
+            let emInterview = document.querySelector('#emInterview');
+            let transformY = 0 - ((scrollPosition - screenHeight - 300) / 6);
+            iframeInterview.style.transform = `translateY(${transformY}px)`;
+            emInterview.style.transform = `translateY(${transformY}px)`;
         }
 
         // pop phone And Email Wrapper
@@ -336,6 +404,52 @@
         }
             
     </script>
-        
+    <script>
+        //on burger click, touch, show the menu
+        let menu = document.querySelector('#menu');
+        let menuWrapper = document.querySelector('#menuWrapper ul');
+        menu.addEventListener('click', () => {
+            if(menuWrapper.style.transform == 'translateY(-100%)') {
+                menuWrapper.style.transform = 'translateY(0)';
+                menu.classList.add('fa-times');
+                menu.classList.remove('fa-bars');
+            } else {
+                menuWrapper.style.transform = 'translateY(-100%)';
+                menu.classList.add('fa-bars');
+                menu.classList.remove('fa-times');
+            }
+        })
+
+        menu.addEventListener('touch', () => {
+            if(menuWrapper.style.transform == 'translateY(-100%)') {
+                menuWrapper.style.transform = 'translateY(0)';
+                menu.classList.add('fa-times');
+                menu.classList.remove('fa-bars');
+            } else {
+                menuWrapper.style.transform = 'translateY(-100%)';
+                menu.classList.add('fa-bars');
+                menu.classList.remove('fa-times');
+            }
+        })
+
+        // on click on a link in the menu, hide the menu
+        let menuLinks = document.querySelectorAll('#menuWrapper a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuWrapper.style.transform = 'translateY(-100%)';
+                menu.classList.add('fa-bars');
+                menu.classList.remove('fa-times');
+            })
+        })
+
+        // on touch on a link in the menu, hide the menu
+        menuLinks.forEach(link => {
+            link.addEventListener('touch', () => {
+                menuWrapper.style.transform = 'translateY(-100%)';
+                menu.classList.add('fa-bars');
+                menu.classList.remove('fa-times');
+            })
+        })
+    </script>
 </body>
 </html>
