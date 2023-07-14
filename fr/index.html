@@ -53,6 +53,8 @@
 
         *, html {
             scroll-behavior: smooth !important;
+            -webkit-tap-highlight-color: transparent !important;
+            outline: none !important;
         }
 
         h2 {
@@ -196,6 +198,22 @@
                 <li class="group">
                     <a href="#download" class="text-[#FFB526] font-[Goruts]">
                         télécharger</a>
+                </li>
+                <li id="grp-select-lang-mobile" class="group/all flex justify-between items-start cursor-pointer">
+                    <div id="custom-select-mobile" class="flex justify-between items-start flex-col overflow-hidden h-[20px] transition-all duration-200">
+                        <div id="first-lang-mobile" class="group/fr custom-option flex justify-center items-center h-[20px] group-hover/all:">
+                            <img src="../flag-for-flag-france.svg" alt="" class="w-[20px] mr-[10px]">
+                            <p class="text-[#FFB526] font-[Goruts]">
+                                français</p>
+                            </div>
+                        <a id="second-lang-mobile" class="group/en mt-[30px] flex justify-center items-center transition-[opacity] duration-100 delay-0 hover:delay-100" href="/Vulpo-Site-Promo/en">
+                            <img src="../flag-for-flag-united-kingdom-svgrepo-com.svg" alt="" class="w-[20px] mr-[10px]">
+                            <p class="text-[#FFB526] font-[Goruts]">
+                                english</p>
+                                
+                        </a>
+                    </div>
+                    <i id="select-lang-mobile" class="fas fa-chevron-down text-[#FFB526] ml-[15px] transform -rotate-[90deg] transition-all duration-100 h-[20px] flex items-center justify-center"></i>
                 </li>
             </ul>
         </div>
@@ -447,6 +465,8 @@
                 menuWrapper.style.transform = 'translateY(-100%)';
                 menu.classList.add('fa-bars');
                 menu.classList.remove('fa-times');
+                selectLangMobile.style.transform = 'rotate(-90deg)';
+                customSelectMobile.style.height = '20px';
             }
         })
 
@@ -459,6 +479,8 @@
                 menuWrapper.style.transform = 'translateY(-100%)';
                 menu.classList.add('fa-bars');
                 menu.classList.remove('fa-times');
+                selectLangMobile.style.transform = 'rotate(-90deg)';
+                customSelectMobile.style.height = '20px';
             }
         })
 
@@ -469,6 +491,8 @@
                 menuWrapper.style.transform = 'translateY(-100%)';
                 menu.classList.add('fa-bars');
                 menu.classList.remove('fa-times');
+                selectLangMobile.style.transform = 'rotate(-90deg)';
+                customSelectMobile.style.height = '20px';
             })
         })
 
@@ -478,6 +502,8 @@
                 menuWrapper.style.transform = 'translateY(-100%)';
                 menu.classList.add('fa-bars');
                 menu.classList.remove('fa-times');
+                selectLangMobile.style.transform = 'rotate(-90deg)';
+                customSelectMobile.style.height = '20px';
             })
         })
     </script>
@@ -505,6 +531,26 @@
 
         grpSelectLang.addEventListener('mouseleave', () => {
             selectLang.style.transform = 'rotate(0deg) translateX(0%)';
+        })
+
+
+    </script>
+    <script>
+        //set postion of select-lang
+        let selectLangMobile = document.querySelector('#select-lang-mobile');
+        let firstSelectMobile = document.querySelector('#first-lang-mobile');
+        let secondSelectMobile = document.querySelector('#second-lang-mobile');
+        let grpSelectLangMobile = document.querySelector('#grp-select-lang-mobile');
+        let customSelectMobile = document.querySelector('#custom-select-mobile');
+
+        grpSelectLangMobile.addEventListener('click', () => {
+            if(selectLangMobile.style.transform == 'rotate(0deg)') {
+                selectLangMobile.style.transform = 'rotate(-90deg)';
+                customSelectMobile.style.height = '20px';
+            } else {
+                selectLangMobile.style.transform = 'rotate(0deg)';
+                customSelectMobile.style.height = '70px';
+            }
         })
 
 

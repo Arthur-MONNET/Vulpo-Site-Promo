@@ -55,6 +55,8 @@
 
         *, html {
             scroll-behavior: smooth !important;
+            -webkit-tap-highlight-color: transparent !important;
+            outline: none !important;
         }
 
         h2 {
@@ -199,6 +201,21 @@
                     <a href="#download" class="text-[#FFB526] font-[Goruts]">
                         download</a>
                 </li>
+                <li id="grp-select-lang-mobile" class="group/all flex justify-between items-start cursor-pointer">
+                    <div id="custom-select-mobile" class="flex justify-between items-start flex-col overflow-hidden h-[20px] transition-all duration-200">
+                        <div id="first-lang-mobile" class="group/en custom-option flex justify-center items-center h-[20px] group-hover/all:">
+                            <img src="../flag-for-flag-united-kingdom-svgrepo-com.svg" alt="" class="w-[20px] mr-[10px]">
+                            <p class="text-[#FFB526] font-[Goruts]">
+                                english</p>
+                            </div>
+                        <a id="second-lang-mobile" class="group/fr mt-[30px] flex justify-center items-center transition-[opacity] duration-100 delay-0 hover:delay-100" href="/Vulpo-Site-Promo/fr">
+                            <img src="../flag-for-flag-france.svg" alt="" class="w-[20px] mr-[10px]">
+                            <p class="text-[#FFB526] font-[Goruts]">
+                                français</p>
+                        </a>
+                    </div>
+                    <i id="select-lang-mobile" class="fas fa-chevron-down text-[#FFB526] ml-[15px] transform -rotate-[90deg] transition-all duration-100 h-[20px] flex items-center justify-center"></i>
+                </li>
             </ul>
         </div>
     </div>
@@ -298,42 +315,42 @@
     </footer>
 
     <script>
-      // This code loads the IFrame Player API code asynchronously.
-      var tag = document.createElement('script');
-      tag.src = "https://www.youtube.com/iframe_api";
-      var firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-      // This function creates an <iframe> (and YouTube player) after the API code downloads.
-      var player;
-      function onYouTubeIframeAPIReady() {
-        player = new YT.Player('player', {
-          height: '360',
-          width: '640',
-          videoId: 'CBxFhM7RtJ0',
-          playerVars: {
-            autoplay: 1,
-            controls: 0,
-            modestbranding: 1,
-            playsinline: 1,
-            enablejsapi: 1,
-            origin: 'https://arthur-monnet.github.io',
-            rel:0,
-            showinfo:0,
-            mute:1,
-            loop:1,
-            playlist: 'CBxFhM7RtJ0'
-          },
-          events: {
-            'onReady': onPlayerReady
-          }
-        });
-      }
-
-      // The API will call this function when the video player is ready.
-      function onPlayerReady(event) {
-        event.target.playVideo();
-      }
+        // This code loads the IFrame Player API code asynchronously.
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  
+        // This function creates an <iframe> (and YouTube player) after the API code downloads.
+        var player;
+        function onYouTubeIframeAPIReady() {
+          player = new YT.Player('player', {
+            height: '360',
+            width: '640',
+            videoId: 'CBxFhM7RtJ0',
+            playerVars: {
+              autoplay: 1,
+              controls: 0,
+              modestbranding: 1,
+              playsinline: 1,
+              enablejsapi: 1,
+              origin: 'https://arthur-monnet.github.io',
+              rel:0,
+              showinfo:0,
+              mute:1,
+              loop:1,
+              playlist: 'CBxFhM7RtJ0'
+            },
+            events: {
+              'onReady': onPlayerReady
+            }
+          });
+        }
+  
+        // The API will call this function when the video player is ready.
+        function onPlayerReady(event) {
+          event.target.playVideo();
+        }
     </script>
     <script>
         // on scroll event, change the opacity of the arrow down ( 1 to 0 for scroll position 0 to screen height)
@@ -449,6 +466,8 @@
                 menuWrapper.style.transform = 'translateY(-100%)';
                 menu.classList.add('fa-bars');
                 menu.classList.remove('fa-times');
+                selectLangMobile.style.transform = 'rotate(-90deg)';
+                customSelectMobile.style.height = '20px';
             }
         })
 
@@ -461,6 +480,8 @@
                 menuWrapper.style.transform = 'translateY(-100%)';
                 menu.classList.add('fa-bars');
                 menu.classList.remove('fa-times');
+                selectLangMobile.style.transform = 'rotate(-90deg)';
+                customSelectMobile.style.height = '20px';
             }
         })
 
@@ -471,6 +492,8 @@
                 menuWrapper.style.transform = 'translateY(-100%)';
                 menu.classList.add('fa-bars');
                 menu.classList.remove('fa-times');
+                selectLangMobile.style.transform = 'rotate(-90deg)';
+                customSelectMobile.style.height = '20px';
             })
         })
 
@@ -480,6 +503,8 @@
                 menuWrapper.style.transform = 'translateY(-100%)';
                 menu.classList.add('fa-bars');
                 menu.classList.remove('fa-times');
+                selectLangMobile.style.transform = 'rotate(-90deg)';
+                customSelectMobile.style.height = '20px';
             })
         })
     </script>
@@ -507,6 +532,26 @@
 
         grpSelectLang.addEventListener('mouseleave', () => {
             selectLang.style.transform = 'rotate(0deg) translateX(0%)';
+        })
+
+
+    </script>
+    <script>
+        //set postion of select-lang
+        let selectLangMobile = document.querySelector('#select-lang-mobile');
+        let firstSelectMobile = document.querySelector('#first-lang-mobile');
+        let secondSelectMobile = document.querySelector('#second-lang-mobile');
+        let grpSelectLangMobile = document.querySelector('#grp-select-lang-mobile');
+        let customSelectMobile = document.querySelector('#custom-select-mobile');
+
+        grpSelectLangMobile.addEventListener('click', () => {
+            if(selectLangMobile.style.transform == 'rotate(0deg)') {
+                selectLangMobile.style.transform = 'rotate(-90deg)';
+                customSelectMobile.style.height = '20px';
+            } else {
+                selectLangMobile.style.transform = 'rotate(0deg)';
+                customSelectMobile.style.height = '70px';
+            }
         })
 
 
