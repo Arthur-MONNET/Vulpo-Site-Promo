@@ -64,6 +64,11 @@
             font-family: "Goruts";
         }
 
+        nav ul>li * {
+            font-size: 14px !important;
+            font-family: "Goruts";
+        }
+
         h1 {
             font-size: 37px !important;
             font-family: "Goruts";
@@ -119,6 +124,9 @@
             h2 {
                 font-size: 24px !important;
             }
+            #logo {
+                margin-right: calc(50vw - 84px);
+            }
         }
 
 
@@ -149,7 +157,7 @@
             <i id="menu" class="fas fa-bars sm:hidden text-[#FFB526]">
             </i>
             
-            <h1>Vulpo</h1>
+            <img id="logo" src="../logo_blanc.svg" alt="" class="h-[32px]">
             <ul class="hidden sm:flex justify-between items-center gap-[30px] uppercase">
                 <li class="group">
                     <a href="#about" class="text-[#FFB526] font-[Goruts]">
@@ -374,7 +382,6 @@
 
         // on scroll
         document.addEventListener('scroll', () => {
-            console.log('scroll')
             // get the scroll position
             let scrollPosition = window.scrollY;
             // get the screen height
