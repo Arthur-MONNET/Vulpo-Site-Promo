@@ -4,6 +4,8 @@
 
 Ce projet est un site vitrine pour Vulpo, une application compagnon pour les activités en plein air. Le site présente les fonctionnalités de l'application, les informations sur l'entreprise et fournit des liens pour télécharger l'application.
 
+**URL : *https://arthur-monnet.github.io/Vulpo-Site-Promo/***
+
 ## Fonctionnalités
 
 - Une page unique qui utilise des sections avec des boutons correspondants dans l'en-tête pour naviguer vers les différentes sections.
